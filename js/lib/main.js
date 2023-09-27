@@ -21,6 +21,8 @@ if(window.location.hostname == 'qlikwebisr.github.io'){
     scriptsUrl = app_settings.scriptsUrlTest;
 }
 
+console.log('scriptsUrl', scriptsUrl);
+
 const webIntegrationId = app_settings.config.webIntegrationId;
 const tenant = app_settings.config.host;
 
