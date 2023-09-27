@@ -1,0 +1,81 @@
+/* Veriables  */
+//import fonts 
+
+$font-stack: Arial,sans-serif;
+
+//colors
+$top-black:#010F1F;
+$main-color: #00A5B3;
+$main-dark-color: #00848F;
+$main-light-color: #4DC0CA;
+$top-background: #F4F5F6;
+$main-background:  #FFFFFF;
+$light-background: #CDECEF;
+$red: #DB0000;
+$blue:#005D95;
+$main-text:#0B2748;
+$black: #000000;
+$light-grey: #B7BABF;
+$white: #FFFFFF;
+
+/* Old Colors */
+$dark-grey:#373737;
+$dark-grey2: #745f5f;
+$grey: #818181;
+$light-grey2: #989898;
+$light-grey3: #B7BABF;
+$light-grey4:#D3DCD6; //#B7BABF
+
+//font sizes
+$small-font-size: 12px;
+$small-line-height: 14px;
+
+$base-font-size: 14px;
+$base-line-height: 18px;
+
+$title-font-size: 16px;
+$title-line-height: 21px;
+
+$kpi-title-font-size: 24px;
+$kpi-line-height: 32px;
+
+//screen sizes
+$extra-small: 415px; //// <= 600px .s - $small
+$small: 600px; // > 600px .m - $medium
+$medium: 992px;  // > 992px .l - $large
+$large: 1200px; // > 1200px .xl  - $extra-large
+
+//https://materializeweb.com/sass.html
+/*
+
+// These classes can be added to HTML Elements
+// to affect visibility on certain displays.
+   
+  .hide-on-small-only
+  .hide-on-small-and-down
+  .hide-on-med-and-down
+  .hide-on-med-and-up
+  .hide-on-med-only
+  .hide-on-large-only
+  .show-on-large
+  .show-on-medium
+  .show-on-small
+  .show-on-medium-and-up
+  .show-on-medium-and-down
+
+//   //@media #--{$small-and-down} {
+//     // styles for small screens and down  <= 600px
+//   }
+//   //@media #--{$medium-and-up} {
+//     // styles for medium screens and larger  > 600px
+//   }
+//   //@media #--{$medium-and-down} {
+//     // styles for medium screens and down   600px < scr < 992px
+//   }
+//  // @media #--{$large-and-up} {
+//     // styles for large screens and up > 992px
+//   }
+//   @media #--{$extra-large-and-up} {
+//     // styles for extra large screens and up >1200px
+//   } 
+*/

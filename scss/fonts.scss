@@ -1,0 +1,94 @@
+/** fonts file **/
+//@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
+
+/* font face mixin */
+//https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+//example: @include font-face(Samplinoff, fonts/Samplinoff, null, null, eot woff);
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+/* 
+
+Assistant font
+--------------
+https://fonts.google.com/specimen/Assistant
+------------------- 
+  fonts/Assistant-ExtraLight.ttf - 200
+  fonts/Assistant-Light.ttf - 300
+  fonts/Assistant-Regular.ttf - 400
+  fonts/Assistant-Medium.ttf - 500
+  fonts/Assistant-SemiBold.ttf - 600
+  fonts/Assistant-Bold.ttf - 700
+  font/Assistant-ExtraBold.ttf
+
+*/
+
+/* Font Face example */
+/*  @font-face{
+    font-family:"Heebo";
+    src:url("fonts/heebo/Heebo-Regular.eot") format("eot"),url("fonts/heebo/Heebo-Regular.ttf") format("truetype");
+}
+ */
+
+/*  //Assistant-Bold 700
+ @include font-face('Assistant', '../fonts/Assistant-Bold', 700, null, ttf);
+ //Assistant-Semi-Bold 600
+ @include font-face('Assistant', '../fonts/Assistant-SemiBold', 600, null, ttf);
+ //Assistant-Medium 500
+ @include font-face('Assistant', '../fonts/Assistant-Medium', 500, null, ttf);
+ //Assistant-Regular 400
+ @include font-face('Assistant', '../fonts/Assistant-Regular', 400, null, ttf);
+ //Assistant-Light 300
+ @include font-face('Assistant', '../fonts/Assistant-Light', 300, null, ttf);
+
+ //super bold
+ //@include font-face('Assistant', 'fonts/Assistant-ExtraBold', 800, null, ttf); */
+
+ //icons
+ /* fallback */
+@font-face {
+	font-family: 'Material Icons';
+	font-style: normal;
+	font-weight: 400;
+	src: local('Material Icons'), local('MaterialIcons-Regular'),
+	//url('https://fonts.gstatic.com/s/materialicons/v85/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2') format('woff2'),
+	//url('../fonts/material.woff2') format('woff2'),
+	url('../fonts/MaterialIcons-Regular.ttf') format('truetype'),
+	;
+  }
+  
+  .material-icons {
+	font-family: 'Material Icons';
+	font-weight: normal;
+	font-style: normal;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+	display: inline-block;
+	white-space: nowrap;
+	word-wrap: normal;
+	direction: ltr;
+	-webkit-font-feature-settings: 'liga';
+	-webkit-font-smoothing: antialiased;
+  }

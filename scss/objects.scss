@@ -1,0 +1,335 @@
+/*  Styling for Qlik Objects */
+
+//Top filters
+.qvobject {
+	flex: 1 1 auto;
+	//height: $chart_height;
+	//@include chart_height(); //205px, 305px, 405px;
+	width: 100%;
+	position: relative;
+	font-family: $font-stack;
+
+	/* Filter */
+	&.top_filter {
+		height: 25px;
+	}
+
+	/* Datepicker */
+	&.datetime {
+		height: 20px;
+		min-width: 165px;
+		padding-top: 2px;
+
+		.qv-object-qlik-date-picker {
+			.qv-object-header {
+				display: none;
+			}
+
+			.qv-object-content {
+				.bootstrap_inside {
+					span {
+						@include font(600, $main-text, 12px, 18px);
+					}
+				}
+
+				.lui-icon--calendar {
+					display: none;
+				}
+
+				.lui-button__caret {
+					color: $main-text;
+					position: relative;
+					top: 2px;
+					right: 4px;
+				}
+			}
+
+			.show-range {
+				background: transparent !important;
+			}
+		}
+	}
+
+	&#CurrentSelections {
+		height: 30px;
+		width: 100%;
+		margin-top: 20px;
+		position: fixed;
+		left: 0;
+		bottom: 9px;
+	}
+
+	/* filters */
+	.qv-object-filterpane {
+		height: 27px;
+
+		.qv-collapsed-listbox {
+			background: $white;
+			border-radius: 10px;
+			border: none;
+			height: 23px;
+
+			.title-wrapper {
+				background: $white;
+
+				.title {
+					font-family: $font-stack;
+					@include font(500, $main-text, 12px, 1.7);
+					text-overflow: ellipsis;
+					overflow: hidden;
+					white-space: nowrap;
+					max-width: 85%;
+					height: 15px;
+				}
+
+				.title:after {
+					font-family: "Material Icons";
+					content: "expand_more";
+					-webkit-font-feature-settings: "liga";
+					color: $main-color;
+					font-size: 18px;
+					line-height: 1.2;
+					width: 15px;
+					position: absolute;
+					top: 2px;
+					right: 7px;
+				}
+			}
+
+			&[aria-describedby*="lui-popover"] {
+				.title-wrapper {
+					.title {
+						&:after {
+							content: "expand_less";
+						}
+					}
+				}
+			}
+
+			/* for SaaS version */
+
+
+			/* .qv-state-count-bar{
+				display: none;
+			} */
+			.qv-state-count-bar {
+				border: none !important;
+			}
+
+			.qv-state-count-bar,
+			.qv-state-count-bar .state.optional,
+			.qv-state-count-bar .state.alternative {
+				background: $white;
+			}
+
+			.qv-state-count-bar .state.selected {
+				background: $main-dark-color;
+			}
+		}
+
+	}
+
+	/* Table design */
+	.qv-object-table {
+		background-color: #F5F5F5;
+
+		.qv-st .qv-st-value .qv-st-value-overflow {
+			text-align: right !important;
+
+			span {
+				color: $dark-grey !important;
+				font-family: $font-stack !important;
+			}
+		}
+
+		table {
+			border: none !important;
+			background-color: #F5F5F5;
+
+			.qv-st-sorting-indicator:before {
+				//color: $yellow;
+			}
+
+			.qv-st-sorting-indicator:before {
+				display: none;
+			}
+
+			thead tr,
+			tbody tr {
+				border-bottom: 1px solid $light-grey !important;
+
+				th,
+				td {
+					//border: 1px solid #F5F5F5 !important;
+					border-top: 1px solid #F5F5F5 !important;
+					border-left: 1px solid #F5F5F5 !important;
+					border-right: 1px solid #F5F5F5 !important;
+					border-bottom: 1px solid $light-grey !important;
+					padding: 5px 0;
+				}
+			}
+
+			thead {
+				tr {
+					th {
+						line-height: 1;
+						vertical-align: middle;
+
+						.qv-st-value .qv-st-value-overflow {
+							font-weight: 700 !important;
+							font-size: 12px !important; //small
+						}
+
+						.lui-icon--search {
+							color: $dark-grey !important;
+						}
+					}
+				}
+			}
+
+			tbody {
+				tr {
+					td {
+						.qv-st-value .qv-st-value-overflow {
+							font-size: $base-font-size !important; //base
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+	//hide titles
+	.qv-object-wrapper {
+
+		/* right:30px; */
+		.qv-object {
+
+			.qv-inner-object {
+
+				.qv-object-header {
+					//height: 0;
+
+					.qv-object-title {
+						//display: none;
+					}
+
+				}
+
+			}
+
+		}
+	}
+
+}
+
+//.qvobject
+
+/* Tabs bug fix on "swipeable" option*/
+.tabs-content {
+	.qv-selection-toolbar {
+		top: 0 !important;
+	}
+}
+
+/* Filter Popup Colors */
+.qv-listbox .serverLocked,
+.qv-listbox .serverSelected,
+.qv-listbox li.selected {
+	background-color: $main-color;
+	border-bottom: 1px solid $main-color;
+}
+
+.sel-toolbar-list .sel-toolbar-confirm:disabled,
+.sel-toolbar-list .sel-toolbar-confirm:disabled:hover {
+	background-color: $main-color;
+}
+
+.sel-toolbar-confirm {
+	background-color: $main-color;
+}
+
+/* Datepicker popup */
+.qlik-daterangepicker td.stateL,
+.qlik-daterangepicker td.stateS {
+	background-color: $main-color !important;
+}
+
+.qlik-daterangepicker.in-selection td.in-range {
+	background-color: $main-light-color !important;
+}
+
+.qlik-daterangepicker.in-selection td.available:hover,
+.qlik-daterangepicker.in-selection td.end-date,
+.qlik-daterangepicker.in-selection td.start-date {
+	background-color: $main-dark-color !important;
+}
+/* Saas fixes */
+
+/* Row of filter selection popover */
+.listbox-popover {
+	.RowColumn-barContainer {
+		.RowColumn-fieldRoot {
+			&.RowColumn-S {
+				background-color: $main-color;
+			}
+		}
+	}
+}
+
+/* filters */
+	.qv-object-filterpane {
+		height: 27px;
+
+		/* input value */
+		.folded-listbox>div {
+			background: $white;
+			border-radius: 10px;
+			border: none;
+
+			/* title */
+			h6 {
+				font-family: $font-stack;
+				@include font(500, $main-text, 12px, 1.7);
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				max-width: 85%;
+				height: 15px;
+			}
+
+			h6:after {
+				font-family: "Material Icons";
+				content: "expand_more";
+				-webkit-font-feature-settings: "liga";
+				color: $main-color;
+				font-size: 18px;
+				line-height: 1.2;
+				width: 15px;
+				position: absolute;
+				top: 2px;
+				right: 7px;
+			}
+
+			/* selection bar */
+			&>div.MuiGrid-item {
+				&>.MuiGrid-container {
+					border-top: none;
+					&>.MuiGrid-item {
+						&:nth-child(1) {
+							background: $main-dark-color !important;
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+/* icon after the opening */
+body:has(.listbox-popover) {
+	.folded-listbox > div h6:after{
+		content: "expand_less";
+	}
+}

@@ -1,0 +1,112 @@
+/* Mixins Main file */
+//scrollbar
+@mixin scrollbar_settings($color, $background-color, $scrollbar-width) {
+    scrollbar-color: $color $background-color;
+    scrollbar-width: $scrollbar-width;
+}
+
+//media mixins
+/* 
+//screens
+$extra-small: 415px; //// <= 600px .s - $small
+$small: 600px; // > 600px .m - $medium
+$medium: 992x;  // > 992px .l - $large
+$large: 1200px; // > 1200px .xl  - $extra-large
+*/
+// Small Mobile Devices <= 415px
+@mixin small-mobile {
+    @media (max-width: ($extra-small) ) {
+        @content;
+    }
+}
+
+// Mobile Devices <= 600px .s - $small
+@mixin mobile {
+    @media (max-width: ($small - 1px) ) {
+        @content;
+    }
+}
+
+// Tablet Devices - > 600px .m 
+@mixin tablet {
+    @media (min-width: $small) {
+        @content;
+    }
+}
+
+// Desktop Devices -  > 992px .l 
+@mixin desktop {
+    @media (min-width: $medium) {
+        @content;
+    }
+}
+
+//  Large Desktop Devices - > 1200px .xl 
+@mixin wide-desktop {
+    @media (min-width: $large) {
+        @content;
+    }
+}
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+    @if $self {
+      &,
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    } @else {
+      &:hover,
+      &:active,
+      &:focus {
+        @content;
+      }
+    }
+  }
+
+  //box sizes mixin - height and width
+  @mixin box($height,$width){
+      height: $height;
+      width: $width;
+  }
+
+  //font mixin
+  @mixin font($font_weight, $color, $font_size, $line_height:normal){
+    font-weight: $font_weight;
+    font-size: $font_size;
+    line-height: $line_height;
+    color: $color;
+  }
+
+  //flex-box
+  @mixin center($alight:center){
+    display: flex;
+    align-items:center;
+  }
+
+  @mixin center_center($alight:center){
+    display: flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+
+ //chart height
+@mixin chart_height($port_height:305px,$land_height:305px,$desc_height: 405px){
+
+      @include mobile{
+        height: $port_height;
+      }
+      @include tablet{
+        height: $land_height;
+      }
+      @include desktop{
+        height: $desc_height;
+      }
+
+}

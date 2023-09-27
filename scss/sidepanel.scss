@@ -1,0 +1,48 @@
+/* sidepanel */
+/* 
+ @media  screen and (max-width: 350px) {
+ @include font(500, $white, $base-font-size, $base-line-height);
+*/
+.sidenav{
+    width:40%;
+    /* Open the comment for constant opening of sidepanel */
+    /* transform: translateX(0%); */
+    background: $main-text;
+    color:#FFFFFF;
+    .back_icon{
+        padding:10px;
+        a{
+            img{}
+        }
+    }
+    .sidepanel_buttons{
+        margin-top: 20px;
+        h3{
+            font-size: 14px;
+            font-weight:700;
+            padding:10px 0 10px 10px;
+        }
+        h4{
+            font-size: 13px;
+            font-weight:600;
+            padding-left:10px;
+        }
+        .buttons{
+            button{
+                display:block;
+                border:none;
+                background: $main-text;
+                border-radius:0 16px 16px 0;
+                @include font(700, $white, $base-font-size, 30px);
+                margin-bottom: 20px;
+                height:30px;
+                width:80%;
+                padding-left: 10px;
+                text-align: left;
+                &:hover, &.active{
+                    background: $top-black;
+                }
+            }
+        }
+    }
+} //.sidepanel

@@ -1,0 +1,57 @@
+<!-- Top KPI -->
+<table class="top_table">
+    <thead>
+        <tr class="table_head">
+            <th></th>
+            <th>Today</th>
+            <th>This Month</th>
+            <th>Yearly</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class="row_title">Invoices</td>
+            <td>
+                <div class="double_values">
+                    <div class="main_value">{{kpis[0].qText}}</div>
+                    <div class="secondary_value" ng-if="kpis[3].perc_float != undefined">
+                        <div class="arrow"><img ng-src="{{src(kpis[3].perc_float)}}" ng-if="kpis[4].perc_float != undefined" alt="arrow"></div>
+                        <div class="percent">{{kpis[3].perc_float_abs}}</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="double_values">
+                    <div class="main_value">{{kpis[1].qText}}</div>
+                    <div class="secondary_value" ng-if="kpis[4].perc_float != undefined">
+                        <div class="arrow"><img ng-src="{{src(kpis[4].perc_float)}}" alt="arrow"></div>
+                        <div class="percent">{{kpis[4].perc_float_abs}}</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="double_values">
+                    <div class="main_value">{{kpis[2].qText}}</div>
+                    <div class="secondary_value" ng-if="kpis[5].perc_float != undefined" >
+                        <div class="arrow"><img ng-src="{{src(kpis[5].perc_float)}}" alt="arrow"></div>
+                        <div class="percent">{{kpis[5].perc_float_abs}}</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="row_title">Contracts</td>
+            <td>
+                <div class="main_value">{{kpis[6].qText}}</div>
+            </td>
+            <td>
+                <div class="main_value">{{kpis[7].qText}}</div>
+            </td>
+            <td>
+                <div class="main_value">{{kpis[8].qText}}</div>
+
+            </td>
+        </tr>
+    </tbody>
+
+</table>

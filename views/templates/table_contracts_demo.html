@@ -1,0 +1,41 @@
+<!-- contract table for container -->
+
+<div class="container_table contracts_container_table">
+  <div class="title_table">
+      <div class="tr empty"></div>
+      <div class="tr total_tr">Total</div>
+      <div class="tr" ng-repeat="row in table_data.data">{{row[0].qText}}</div>
+    </div>
+    
+    <div class="table daily_table">
+      <div class="tr head_column">
+        DAILY
+      </div>
+      <div class="tr totals">
+          <div class="th">{{table_data.totals[0].qText}}</div>
+      </div>
+      <div class="tr body_row" ng-repeat="row in table_data.data">
+        <div class="td">{{row[1].qText}}<</div>
+      </div>
+    </div>
+    
+    <div class="table month_table">
+      <div class="tr head_column">MONTHLY</div>
+      <div class="tr totals">
+          <div class="th">{{table_data.totals[1].qText}}</div>
+      </div>
+      <div class="tr body_row" ng-repeat="row in table_data.data">
+        <div class="td">{{row[2].qText}}<</div>
+      </div>
+    </div>
+    
+    <div class="table year_table">
+      <div class="tr head_column">YEARLY</div>
+      <div class="tr totals">
+          <div class="th">{{table_data.totals[2].qText}}</div>
+      </div>
+      <div class="tr body_row" ng-repeat="row in table_data.data">
+        <div class="td">{{row[3].qText}}<</div>
+      </div>
+    </div>
+</div>

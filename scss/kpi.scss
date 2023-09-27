@@ -1,0 +1,86 @@
+/* kpis scss */
+/* 
+background: linear-gradient(270deg, $blue-kpi-title-light 0%,$blue-kpi-title-dark 100%);
+@media screen and (max-width:350px) {
+                    font-size: 14px;
+                }
+@include font(500, $light-grey2, $small-font-size, 1);
+*/
+.top_kpi_table {
+    padding: 10px 5px 10px;
+    margin-bottom: 10px;
+    background-color: $top-background;
+
+    table {
+        border: none;
+
+        td,
+        th {
+            padding: 5px;
+            display: table-cell;
+            text-align: center;
+            border: 1px solid $light-grey4;
+        }
+
+        thead {
+            tr.table_head {
+                th {
+                    @include font(700, $blue, $small-font-size, 1.2);
+                    border-top: none;
+                    width:26%;
+                    &:nth-child(1){
+                        border-left: none;
+                        width:20%;
+                    }
+                    &:nth-child(3){
+                        border-right: none;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                td {
+                    height: 40px;
+                    vertical-align: bottom;
+                    &.row_title {
+                        @include font(700, $blue, $small-font-size, 1.2);
+                        text-align: left;
+                    }
+                    .main_value {
+                        @include font(700, $main-text, 18px, 1.2);
+                        text-align: right;
+                        width:59%;
+                        @media  screen and (max-width: 350px) {
+                            font-size: 16px;
+                            width: 52%;
+                        }
+                    }
+                    .double_values {
+                        position:relative;
+                        .main_value {
+                        }
+                        .secondary_value {
+                            position: absolute;
+                            bottom: 2px;
+                            right: 0; //2px
+                            width: 41%;
+                            text-align: center;
+                            @media  screen and (max-width: 350px) {
+                                right: 8px;
+                                bottom:0;
+                            }
+                            .arrow {
+                                height: 15px;
+                            }
+                            .percent {
+                                @include font(500, $main-text, 11px, 1.2);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

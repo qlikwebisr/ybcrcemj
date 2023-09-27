@@ -1,0 +1,72 @@
+<!-- invoices table for container -->
+<div class="container_table invoice_container_table">
+  
+    <div class="title_table">
+      <div class="tr empty"></div>
+      <div class="tr empty"></div>
+      <div class="tr total_tr">Total</div>
+      <div class="tr" title="{{row[0].qText}}" ng-repeat="row in table_data.data">{{row[0].qText}}</div>
+    </div>
+    
+    <div class="table daily_table">
+      <div class="tr head_column">
+        DAILY
+      </div>
+      <div class="tr bottom_head">
+         <div class="th">Inv.</div>
+         <div class="th">Targ.</div>
+         <div class="th">%</div>
+      </div>
+      <div class="tr totals">
+         <div class="th">{{table_data.totals[0].formatted_num}}</div>
+          <div class="th">{{table_data.totals[1].formatted_num}}</div>
+          <div class="th">{{table_data.totals[2].perc_float}}</div>
+      </div>
+      <div class="tr body_row"  ng-repeat="row in table_data.data">
+          <div class="td" style="color: {{table_data.colors[0].color}}">{{row[1].formatted_num}}</div>
+          <div class="td" style="color: {{table_data.colors[1].color}}">{{row[2].formatted_num}}</div>
+          <div class="td" style="color: {{table_data.colors[2].color}}">{{row[3].perc_float}}</div>
+      </div>
+
+    </div>
+    
+    <div class="table month_table">
+      <div class="tr head_column">MONTHLY</div>
+       <div class="tr bottom_head">
+         <div class="th">Inv.</div>
+         <div class="th">Targ.</div>
+         <div class="th">%</div>
+      </div>
+       <div class="tr totals">
+         <div class="th">{{table_data.totals[3].formatted_num}}</div>
+          <div class="th">{{table_data.totals[4].formatted_num}}</div>
+          <div class="th">{{table_data.totals[5].perc_float}}</div>
+      </div>
+      <div class="tr body_row" ng-repeat="row in table_data.data">
+        <div class="td" style="color: {{table_data.colors[3].color}}">{{row[4].formatted_num}}</div>
+        <div class="td" style="color: {{table_data.colors[4].color}}">{{row[5].formatted_num}}</div>
+        <div class="td" style="color: {{table_data.colors[5].color}}">{{row[6].perc_float}}</div>
+      </div>
+
+    </div>
+    
+    <div class="table year_table">
+      <div class="tr head_column">YEARLY</div>
+       <div class="tr bottom_head">
+         <div class="th">Inv.</div>
+         <div class="th">Targ.</div>
+         <div class="th">%</div>
+      </div>
+       <div class="tr totals">
+         <div class="th">{{table_data.totals[6].numKM}}</div>
+          <div class="th">{{table_data.totals[7].numKM}}</div>
+          <div class="th">{{table_data.totals[8].perc_float}}</div>
+      </div>
+      <div class="tr body_row" ng-repeat="row in table_data.data">
+        <div class="td" style="color: {{table_data.colors[6].color}}">{{row[7].numKM}}</div>
+        <div class="td" style="color: {{table_data.colors[7].color}}">{{row[8].numKM}}</div>
+        <div class="td" style="color: {{table_data.colors[8].color}}">{{row[9].perc_float}}</div>
+      </div>
+    </div>
+    
+</div>

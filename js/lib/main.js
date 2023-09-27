@@ -1,0 +1,86 @@
+//Main configuration file
+
+console.log('settings', settings);
+
+var config = settings.prod.config;
+var app_settings = settings.prod;
+
+//production env - dev-hub
+var baseUrl =  "https://" +  config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources"
+
+
+if (window.location.hostname == 'localhost') {
+	config = settings.local.config;
+	app_settings = settings.local;
+}
+
+var scriptsUrl = app_settings.scriptsUrl;
+
+/* 
+ * DEPENDANCIES
+ */
+require.config({
+	baseUrl: baseUrl,
+	webIntegrationId: config.webIntegrationId,
+	paths: {
+		'domReady': scriptsUrl + 'js/vendor/domReady/domReady',
+		'materialize': scriptsUrl + 'js/vendor/materialize.min',
+		'app': scriptsUrl + 'js/lib/app',
+		'controller.home': scriptsUrl + 'js/controllers/home',
+		'directive.getObject': scriptsUrl + 'js/directives/getObject',
+		'directive.dropDown': scriptsUrl + 'js/directives/dropDown',
+		'directive.exportToCsv': scriptsUrl + 'js/directives/exportToCsv',
+		'directive.visualization': scriptsUrl + 'js/directives/visualization',
+		'service.api': scriptsUrl + 'js/services/api',
+		'service.utility': scriptsUrl + 'js/services/utilities'
+	}
+});
+
+define([
+	'require',
+	'angular',
+	'app'
+], function (require, angular) {
+	'use strict';
+
+	app.obj.angularApp = angular.module('myApp', [
+		'ngAnimate',
+		'ngRoute',
+	]);
+	app.obj.angularApp.config(function ($routeProvider, $locationProvider) {
+		$routeProvider
+			.when('/', {
+				templateUrl: scriptsUrl + "views/home.html",
+				controller: 'controller.home'
+			})
+			.otherwise({
+				redirectTo: '/'
+			})
+	})
+	require([
+		'domReady!',
+		'js/qlik',
+		'angular',
+		'materialize',
+		'controller.home',
+		'service.api',
+		'service.utility',
+		'directive.getObject',
+		'directive.dropDown',
+		'directive.exportToCsv',
+		'directive.visualization'
+	], function (document, qlik) {
+
+		app.obj.qlik = qlik;
+
+		qlik.setOnError(function (error) {
+		
+				console.log(error);
+			
+		});
+
+		angular.bootstrap(document, ["myApp", "qlik-angular"]);
+
+		app.boot();
+	});
+});

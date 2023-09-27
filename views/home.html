@@ -1,0 +1,78 @@
+<!-- controller.home -->
+<!-- Header -->
+<header ng-include="'views/templates/header.html'"></header>
+<!-- sidepanel -->
+<div class="sidepanel sidenav" id="sidenav">
+    <div class="back_icon">
+        <a href="" class="close_sidenav" ng-click="closeSidepanel()">
+            <img src="img/arrow_left.svg" alt="back_icon">
+        </a>
+    </div>
+    <div class="sidepanel_buttons">
+
+        <h3>Target type:</h3>
+
+        <!-- <h4>PC/LCV</h4> -->
+
+        <div class="buttons">
+            <button class="sidepanel_button" ng-click="changeVtarget(1,$event)">
+                Dealer
+            </button>
+            <button class="sidepanel_button active" ng-click="changeVtarget(2,$event)">
+                Budget
+            </button>
+            <button class="sidepanel_button" ng-click="changeVtarget(3,$event)">
+                Forecast
+            </button>
+        </div>
+    </div>
+</div>
+<!-- main -->
+<main>
+	<div class="container_flex"></div>
+		<!-- Top kpi -->
+		<div class="top_kpi_table" ng-include="'views/templates/top_kpi.html'"></div>
+		<!-- Main Container -->
+		<div class="main_container">
+			<div class="container_div">
+				<div class="container_header">
+					<ul class="tabs row">
+						<li class="tab col s3">
+							<div class="tab_div"></div>
+							<a class="active" href="#pclcv" data-id="pclcv">PC/LCV</a>
+						</li>
+						<li class="tab col s3">
+							<div class="tab_div"></div>
+							<a href="#brand" data-id="brand">Brand</a>
+						</li>
+						<li class="tab col s3">
+							<div class="tab_div"></div>
+							<a href="#market" data-id="market">Market <br>Model</a>
+						</li>
+						<li class="tab col s3">
+							<div class="tab_div"></div>
+							<a href="#motoriazare" data-id="motorizare">Motoriazare</a>
+						</li>
+					</ul>
+				</div>
+				<div class="container_links">
+					<div class="links">
+						<div class="link">
+							<a href="" ng-click="invContChange('invoices',$event)" class="invoices active">Invoices</a>
+						</div>
+						<div class="link">
+							<a href="" ng-click="invContChange('contracts',$event)" class="contracts">Contracts</a>
+						</div>
+					</div>
+				</div>
+				<!-- table container  -->
+				<div class="container_body" ng-include="'views/templates/table_invoices.html'" ng-if="object_type == 'invoices'"></div>
+				<div class="container_body" ng-include="'views/templates/table_contracts.html'" ng-if="object_type == 'contracts'"></div>
+
+				<div id="demodatafortabs">
+					<div id="pclcv">pclcv</div><div id="brand">brand</div><div id="market">market</div><div id="motoriazare">motoriazare</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

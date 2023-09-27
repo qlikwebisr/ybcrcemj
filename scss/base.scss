@@ -1,0 +1,102 @@
+/* Basic Style File */
+/* base styling */
+* {
+	box-sizing: border-box;
+}
+html{
+	font-family: $font-stack !important;
+	font-size: 12px;
+}
+html, body {
+    height:100%;
+	margin:0;
+	padding:0;
+}
+
+/* materialize css fixes */
+@media only screen and (max-width: 600px) {
+	.container{
+		width: 100%;
+	}
+}
+@media only screen and (min-width: 993px) {
+	.container {
+		width: 85%;
+	}
+}
+.container_flex{
+	width: 100%;
+}
+.row{
+	margin-bottom:0;
+	.col {
+		/* direction right */
+		float: right;
+		padding: 0 2px;
+	}
+}
+
+.col .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+main{
+	background: $main-background;
+}
+/* remove box-shadow from all buttons*/
+button{
+	box-shadow: none !important;
+}
+select{
+	display:inline-block;
+}
+
+/* remove materialize style of nav  */
+nav:not(.my_navbar) {
+	color:inherit !important;
+	background-color: #FFF !important;
+	width: auto !important;
+	height: auto !important;
+	line-height: normal  !important;
+}
+
+/*  remove radio button style  */
+input[type="radio"]:not(:checked), input[type="radio"]:checked {
+	position: static;
+    opacity: initial;
+    pointer-events: auto;
+}
+input[type="checkbox"], input[type="radio"] {
+   /*  -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0; */
+}
+
+/* Button  button-scroll-to-top  */
+.button-scroll-to-top {
+	//background: $main-green;
+	color: $white;
+	@include box(40px,40px);
+    border: none;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+	&:active{
+		//background: $light-green;
+	}
+	i{
+		line-height: 1.5;
+	}
+}
+
+/* Colors */
+.black{
+  color:$black;
+}
+.red{
+  color:$red;
+}
+.blue{
+  color:$blue;
+}

@@ -1,0 +1,123 @@
+/*  Header Style file */
+/* 
+@include box(20px,20px);
+@include font(500, $white, $base-font-size, $base-line-height);
+ @media screen and (min-width:600px) {
+                    background-size: cover;
+                }
+*/
+header {
+    background-color: $top-background;
+
+    /* top_header */
+    .top_header {
+        background: $top-black;
+        height: 54px;
+        //@include center_center;
+        display: flex;
+        justify-content: space-between;
+
+        >div {
+            display: flex;
+        }
+
+        img {
+            height: 24px;
+        }
+
+        .sidepanel_icon {
+
+            width: 15%;
+            align-items: center;
+            margin-left: 15px;
+
+        }
+
+        .title {
+            @include center_center;
+            text-align: center;
+            @include font(600, $white, $base-font-size, $base-line-height);
+        }
+
+        .home_icon {
+            width: 15%;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 15px;
+        }
+    }
+
+    /* bottom header */
+    .bottom_header {
+
+        //height: 84px;
+        .filters_container {
+            background: $main-color;
+            box-shadow: 0 3px 6px #00000029;
+
+            .top_filters {
+                padding: 4px 4px 8px;
+
+                .fiter_div {
+                    padding: 2px;
+
+                    .label {
+                        @include font(500, $white, $base-font-size, $base-line-height);
+                        padding-bottom: 2px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .page_title {
+            display: flex;
+
+            .main_title {
+                width: 50%;
+                position: relative;
+                padding: 0 12px;
+                @media  screen and (min-width: $medium) {
+                    padding: 0 14px;
+                }
+                .main_title_container {
+                    background: $main-color;
+                    transform: perspective(15em) rotateX(-30deg);
+                    border-radius: 0 0 4px 4px;
+                    box-shadow: 0 4px 6px #00000029;
+                    position: relative;
+                    bottom: 3px;
+                    height: 33px;
+                }
+                .main_title_image {
+                    position: absolute;
+                    top: 5px;
+                    width: 80%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    @media  screen and (max-width: 350px) {
+                        top: 8px;
+                    }
+                    img {
+                        max-width: 134px;
+                        display: block;
+                        margin: 0 auto;
+                        @media  screen and (max-width: 350px) {
+                            max-width:95px;
+                        }
+                        @media  screen and (min-width: 351px) and (max-width: 380px) {
+                            max-width:120px;
+                        }
+                    }
+                }
+            }
+            .date {
+                @include center;
+                .label{
+                    @include font(600, $main-color, 14px, 16px);
+                }
+               
+            }
+        }
+    }
+}
