@@ -24,7 +24,7 @@ if(window.location.hostname == 'qlikwebisr.github.io'){
 /* 
  * DEPENDANCIES
  */
-require.config({
+/* require.config({
 	baseUrl: baseUrl,
 	webIntegrationId: config.webIntegrationId,
 	paths: {
@@ -88,4 +88,4 @@ define([
 
 		app.boot();
 	});
-});
+}); */
