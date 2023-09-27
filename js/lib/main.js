@@ -23,19 +23,17 @@ if(window.location.hostname == 'qlikwebisr.github.io'){
 
 console.log('scriptsUrl', scriptsUrl);
 
-const webIntegrationId = app_settings.config.webIntegrationId;
-const tenant = app_settings.config.host;
 
 /* Login function  */
 function login() {
   function isLoggedIn() {
-    return fetch("https://" + tenant + "/api/v1/users/me", {
+    return fetch("https://" + config.host + "/api/v1/users/me", {
       method: 'GET',
       mode: 'cors',
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        'qlik-web-integration-id': webIntegrationId,
+        'qlik-web-integration-id': config.webIntegrationId,
       },
     }).then(response => {
       return response.status === 200;
@@ -44,7 +42,7 @@ function login() {
   return isLoggedIn().then(loggedIn => {
     if (!loggedIn) {
       // check login
-        window.top.location.href = "https://" + tenant + "/login?qlik-web-integration-id=" + webIntegrationId + "&returnto=" + top.location.href;
+        window.top.location.href = "https://" + config.host + "/login?qlik-web-integration-id=" + config.webIntegrationId + "&returnto=" + top.location.href;
       throw new Error('not logged in');
     }
   });
