@@ -21,10 +21,39 @@ if(window.location.hostname == 'qlikwebisr.github.io'){
     scriptsUrl = app_settings.scriptsUrlTest;
 }
 
+const webIntegrationId = app_settings.config.webIntegrationId;
+const tenant = app_settings.config.host;
+
+/* Login function  */
+function login() {
+  function isLoggedIn() {
+    return fetch("https://" + tenant + "/api/v1/users/me", {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        'qlik-web-integration-id': webIntegrationId,
+      },
+    }).then(response => {
+      return response.status === 200;
+    });
+  }
+  return isLoggedIn().then(loggedIn => {
+    if (!loggedIn) {
+      // check login
+        window.top.location.href = "https://" + tenant + "/login?qlik-web-integration-id=" + webIntegrationId + "&returnto=" + top.location.href;
+      throw new Error('not logged in');
+    }
+  });
+}
+
+login();
+
 /* 
  * DEPENDANCIES
  */
-/* require.config({
+require.config({
 	baseUrl: baseUrl,
 	webIntegrationId: config.webIntegrationId,
 	paths: {
@@ -88,4 +117,4 @@ define([
 
 		app.boot();
 	});
-}); */
+});
