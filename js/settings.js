@@ -50,8 +50,8 @@ const settings = {
         },
         app_id: "5adc8bda-46a3-4c11-a1a0-6f56ad8364d8",
         //scriptsUrl:"https://ait-qlikgw.ait.autoitalia.ro/",
-       // scriptsUrl:"https://qlik.autoitalia.ro/",
-        scriptsUrl:"https://qlikwebisr.github.io/ybcrcemj/",
+        scriptsUrl:"https://qlik.autoitalia.ro/",
+        scriptsUrlTest:"https://qlikwebisr.github.io/ybcrcemj/",
         objects: {
             top_filters: [
                 "QETpfj", //PC

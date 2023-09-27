@@ -8,6 +8,7 @@ var app_settings = settings.prod;
 //production env - dev-hub
 var baseUrl =  "https://" +  config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources"
 
+console.log('window.location.hostname', window.location.hostname);
 
 if (window.location.hostname == 'localhost') {
 	config = settings.local.config;
@@ -15,6 +16,10 @@ if (window.location.hostname == 'localhost') {
 }
 
 var scriptsUrl = app_settings.scriptsUrl;
+
+if(window.location.hostname == 'qlikwebisr.github.io'){
+    scriptsUrl = app_settings.scriptsUrlTest;
+}
 
 /* 
  * DEPENDANCIES
