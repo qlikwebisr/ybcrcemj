@@ -7,7 +7,6 @@ const settings = {
             port: 443,
             isSecure: true,
             */
-
             host: "1jkd6vi85zxoeh4.eu.qlikcloud.com",
             prefix:"/",
             port: 443,

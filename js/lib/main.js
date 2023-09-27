@@ -23,7 +23,6 @@ if(window.location.hostname == 'qlikwebisr.github.io'){
 
 console.log('scriptsUrl', scriptsUrl);
 
-
 /* Login function  */
 function login() {
   function isLoggedIn() {
