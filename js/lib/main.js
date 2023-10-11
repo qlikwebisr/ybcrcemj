@@ -22,13 +22,15 @@ if (window.location.hostname == 'qlikwebisr.github.io') {
 }
 
 console.log('scriptsUrl', scriptsUrl);
-
 console.log('config', config);
 
 /* Login function  */
-function login() {
+async function login() {
 
-	function isLoggedIn() {
+	async function isLoggedIn() {
+
+		console.log('isLoggedIn', config.host, config.webIntegrationId);
+
 		return fetch("https://" + config.host + "/api/v1/users/me", {
 			method: 'GET',
 			mode: 'cors',
@@ -40,17 +42,17 @@ function login() {
 		}).then(response => {
 			return response.status === 200;
 		});
+		
 	}
 
-	return isLoggedIn().then(loggedIn => {
-
-		if (!loggedIn) {
-			// check login
-			window.top.location.href = "https://" + config.host + "/login?qlik-web-integration-id=" + config.webIntegrationId + "&returnto=" + top.location.href;
-			throw new Error('not logged in');
-		}
-		
-	});
+	const loggedIn = await isLoggedIn();
+	
+	console.log('loggedIn', config.host, config.webIntegrationId, top.location.href);
+	if (!loggedIn) {
+		// check login
+		window.top.location.href = "https://" + config.host + "/login?qlik-web-integration-id=" + config.webIntegrationId + "&returnto=" + top.location.href;
+		throw new Error('not logged in');
+	}
 
 }
 
