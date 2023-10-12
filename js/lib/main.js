@@ -60,6 +60,7 @@ async function login() {
 login().then(() => {
 
 	console.log('inside login', baseUrl, scriptsUrl, config.webIntegrationId);
+	
 
 	/*
 	 * DEPENDANCIES
