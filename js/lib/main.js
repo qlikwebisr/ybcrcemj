@@ -59,8 +59,12 @@ async function login() {
 //login();
 login().then(() => {
 
+<<<<<<< HEAD
 	console.log('inside login', baseUrl, scriptsUrl, config.webIntegrationId);
 	
+=======
+	console.log('inside login');
+>>>>>>> 69d2834c4cc22f9160fc26a2cd2228b2664beb7a
 
 	/*
 	 * DEPENDANCIES
