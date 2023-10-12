@@ -61,7 +61,6 @@ login().then(() => {
 
 	console.log('inside login----', baseUrl, scriptsUrl, config.webIntegrationId);
 
-
 	/*
 	 * DEPENDANCIES
 	 */
@@ -87,12 +86,16 @@ login().then(() => {
 		'angular',
 		'app'
 	], function (require, angular) {
+
 		'use strict';
+
+		console.log('inside the function');
 
 		app.obj.angularApp = angular.module('myApp', [
 			'ngAnimate',
 			'ngRoute',
 		]);
+
 		app.obj.angularApp.config(function ($routeProvider, $locationProvider) {
 			$routeProvider
 				.when('/', {
@@ -103,6 +106,7 @@ login().then(() => {
 					redirectTo: '/'
 				})
 		})
+
 		require([
 			'domReady!',
 			'js/qlik',

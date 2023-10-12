@@ -43,7 +43,7 @@ const settings = {
         config: {
             host: "1jkd6vi85zxoeh4.eu.qlikcloud.com",
             prefix:"/",
-            port: 443,
+            port: "",
             isSecure: true,
             webIntegrationId:"p39g8z6OSm3dBDntVhfx8_Kr5-VsEXKQ"
         },
