@@ -27,7 +27,7 @@ console.log('config', config);
 /* Login function  */
 async function login() {
 
-	async function isLoggedIn() {
+    function isLoggedIn() {
 
 		console.log('isLoggedIn', config.host, config.webIntegrationId);
 
@@ -46,11 +46,11 @@ async function login() {
 	}
 
 	const loggedIn = await isLoggedIn();
-	
+
 	console.log('loggedIn', config.host, config.webIntegrationId, top.location.href);
 	if (!loggedIn) {
 		// check login
-		window.top.location.href = "https://" + config.host + "/login?qlik-web-integration-id=" + config.webIntegrationId + "&returnto=" + top.location.href;
+		window.location.href = "https://" + config.host + "/login?qlik-web-integration-id=" + config.webIntegrationId + "&returnto=" + location.href;
 		throw new Error('not logged in');
 	}
 
@@ -59,7 +59,9 @@ async function login() {
 //login();
 login().then(() => {
 
-	/* 
+	console.log('inside login');
+
+	/*
 	 * DEPENDANCIES
 	 */
 	require.config({
