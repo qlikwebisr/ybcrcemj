@@ -24,8 +24,163 @@ if (window.location.hostname == 'qlikwebisr.github.io') {
 console.log('scriptsUrl', scriptsUrl);
 console.log('config', config);
 
+(async function () {
+
+	/**
+	 * check third-party cookie
+	 * @returns
+	 */
+
+	function check3PCookies() {
+
+		return new Promise((resolve, reject) => {
+
+			//console.log('cookieEnabled', navigator.cookieEnabled);
+
+			if (navigator.cookieEnabled) {
+
+				const frame = document.createElement("iframe");
+				frame.id = "3pc";
+				frame.src =
+					"https://chamithrepo.github.io/create-third-party-cookie/"; //Add your hosted domain url here
+				frame.style.display = "none";
+				frame.style.position = "fixed";
+				document.body.appendChild(frame);
+
+				window.addEventListener(
+
+					"message",
+					function (event) {
+
+						//console.log('event', event);
+
+						// if (event.data === "3pcSupported" || event.data === "3pcUnsupported") {
+
+						if (typeof event.data != undefined) {
+
+							//console.log('event.data', event.data);
+
+							if (event.data === "3pcSupported") {
+
+								//document.body.removeChild(frame);
+
+								resolve("Third-Party cookies supported");
+
+							} else {
+
+								reject("Third-Party cookies not supported");
+
+							}
+
+						} else {
+
+							reject("Third-Party cookies not supported");
+
+						}
+					}
+				);
+
+
+			} else {
+
+				reject("Third-Party cookies not supported");
+
+			}
+
+		});
+
+	}
+
+	function iOS() {
+		return [
+				'iPad Simulator',
+				'iPhone Simulator',
+				'iPod Simulator',
+				'iPad',
+				'iPhone',
+				'iPod'
+			].includes(navigator.platform)
+			// iPad on iOS 13 detection
+			||
+			(navigator.userAgent.includes("Mac") && "ontouchend" in document)
+	}
+
+	//function for Open Model
+	function openModal() {
+
+		var modal = document.getElementById("modal_ios");
+		modal.style.display = "block";
+
+		console.log('openModal');
+
+		var modal_submit = document.getElementById("modal_submit");
+
+		/* window.onclick = function (event) {
+
+			console.log('window.onclick');
+
+			if (event.target == modal) {
+				modal.style.display = "none";
+				//localStorage.setItem("settings_enabled", true);
+			}
+
+		} */
+
+		modal_submit.onclick = function () {
+
+			console.log('modal_submit.onclick');
+
+			modal.style.display = "none";
+			//localStorage.setItem("settings_enabled", true);
+		}
+
+		const checkbox = document.getElementById("dont-show");
+
+		checkbox.onchange = function () {
+			if (checkbox.checked) {
+				console.log("Checkbox is checked.");
+				localStorage.setItem("settings_enabled", true);
+			}
+		}
+
+	}
+
+	//console.log('ios', iOS());
+
+	//activate localStorage if not set before
+	if (localStorage.getItem("settings_enabled") == null) {
+		localStorage.setItem("settings_enabled", false);
+	}
+
+	//simple check only for iOS
+	/* if (iOS()) {
+		if (localStorage.getItem("settings_enabled") == 'false') {
+			openModal();
+		}
+	} */
+
+	//Check if device iPhone and if third-party cookie enabled
+	if (iOS() == true && localStorage.getItem("settings_enabled") == 'false') {
+
+		try {
+
+			const check3PCookiesVal = await check3PCookies();
+			console.log('check3PCookiesVal', check3PCookiesVal);
+
+		} catch (error) {
+
+			openModal();
+			console.error(error);
+
+		}
+
+	}
+
+
+})(); //(async function () {
+
 /* Login function  */
-async function login() {
+/* async function login() {
 
 	function isLoggedIn() {
 
@@ -55,12 +210,12 @@ async function login() {
 		throw new Error('not logged in');
 	}
 
-}
+} */
 
 //login();
 //login().then(() => {
 
-console.log('inside login----', baseUrl, scriptsUrl, config.webIntegrationId);
+console.log('settings details', baseUrl, scriptsUrl, config.webIntegrationId);
 
 /*
  * DEPENDANCIES

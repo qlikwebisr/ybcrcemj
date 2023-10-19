@@ -969,43 +969,31 @@ body:has(.listbox-popover) .folded-listbox > div h6:after {
 }
 
 /* Popup Style */
-#popup {
-  background-color: #c3534b;
-  color: #FFFFFF;
-  position: fixed;
-  max-width: 250px;
-  padding: 10px;
-  margin: 10px;
-  bottom: 0;
-  right: 0;
-  display: none;
-  border-radius: 5px;
-  z-index: 6;
-  font-family: sans-serif;
+.modal {
+  top: 35%;
+  border-radius: 12px;
+  z-index: 10;
 }
-
-.close {
-  cursor: pointer;
-  background: 0 0;
-  border: 0;
-  float: right;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.2;
-  position: absolute;
-  right: 9px;
-  top: 7px;
+.modal .modal-content {
+  padding: 12px;
+  font-size: 14px;
 }
-
-.close:hover {
-  opacity: 0.5;
+.modal .modal-footer {
+  padding: 0 12px 12px;
+  height: auto;
 }
-
-#popupText {
-  margin-right: 23px;
+.modal .modal-footer label {
+  float: left !important;
+}
+.modal .modal-footer label span {
+  padding-left: 30px;
+}
+.modal .modal-footer button {
+  background-color: #00A5B3;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 6px;
+  margin: 0 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
