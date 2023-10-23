@@ -1,5 +1,5 @@
 //first file for reloading
-console.log('load settings', settings);
+console.log('settings: ', settings);
 
 var config = settings.prod.config;
 var app_settings = settings.prod;
@@ -206,6 +206,6 @@ if (window.location.hostname == 'qlikwebisr.github.io') {
 		const container = document.querySelector('.container');
 		container.parentNode.insertBefore(require_script, container.nextSibling);
 
-    } 
+    }
 
 })();
