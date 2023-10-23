@@ -305,6 +305,10 @@ header .bottom_header .page_title .main_title .main_title_image {
   width: 80%;
   left: 50%;
   transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
 }
 @media screen and (max-width: 350px) {
   header .bottom_header .page_title .main_title .main_title_image {
