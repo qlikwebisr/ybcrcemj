@@ -289,6 +289,10 @@ header .bottom_header .page_title .main_title {
 header .bottom_header .page_title .main_title .main_title_container {
   background: #00A5B3;
   transform: perspective(15em) rotateX(-30deg);
+  -ms-transform: perspective(15em) rotateX(-30deg);
+  -webkit-transform: perspective(15em) rotateX(-30deg);
+  -moz-transform: perspective(15em) rotateX(-30deg);
+  -o-transform: perspective(15em) rotateX(-30deg);
   border-radius: 0 0 4px 4px;
   box-shadow: 0 4px 6px #00000029;
   position: relative;
