@@ -304,8 +304,6 @@ header .bottom_header .page_title .main_title .main_title_image {
   top: 2px;
   width: 80%;
   left: 50%;
-  z-index: 0;
-  border:1px solid red;
   transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
