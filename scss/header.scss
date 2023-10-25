@@ -110,6 +110,7 @@ header {
                         max-width: 134px;
                         display: block;
                         margin: 0 auto;
+                        z-index:2;
                         @media  screen and (max-width: 350px) {
                             max-width:95px;
                         }
