@@ -72,18 +72,7 @@ header {
 
         .page_title {
             display: flex;
-            position: relative;
-            &:after{
-                content:"";
-                position: absolute;
-                top: 0;
-                left:10px;
-                z-index:1000;
-                width: 134px;
-                height: 23px;
-                background: transparent;
-                border: 1px solid lime;
-            }
+
             .main_title {
                 width: 50%;
                 position: relative;
@@ -95,7 +84,7 @@ header {
                     top: 0;
                     left:0;
                     right:0;
-                    z-index:10;
+                    z-index:100;
                     width: 134px;
                     height: 23px;
                     margin:0 auto;
@@ -107,21 +96,20 @@ header {
                 }
                 .main_title_container {
                     background: $main-color;
-                    transform: perspective(15em) rotateX(-30deg);
+                   /*  transform: perspective(15em) rotateX(-30deg);
                     -ms-transform: perspective(15em) rotateX(-30deg);
                     -webkit-transform: perspective(15em) rotateX(-30deg);
                     -moz-transform: perspective(15em) rotateX(-30deg);
-                    -o-transform: perspective(15em) rotateX(-30deg);
+                    -o-transform: perspective(15em) rotateX(-30deg); */
                     border-radius: 0 0 4px 4px;
                     box-shadow: 0 4px 6px #00000029;
                     position: relative;
                     bottom: 3px;
                     height: 33px;
-                    border:1px solid purple;
                 }
                 .main_title_image {
                     position: absolute;
-                    top:0;
+                    top: 0;
                     width: 80%;
                     left: 50%;
                     transform: translateX(-50%);
@@ -129,7 +117,6 @@ header {
                     -webkit-transform: translateX(-50%);
                     -moz-transform: translateX(-50%);
                     -o-transform: translateX(-50%);
-                    border:1px solid red;
                     display: block;
                     height: 28px;
                     @media  screen and (max-width: 350px) {
