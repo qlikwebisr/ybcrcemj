@@ -280,6 +280,7 @@ header .bottom_header .page_title .main_title {
   width: 50%;
   position: relative;
   padding: 0 12px;
+  border: 1px solid blue;
 }
 @media screen and (min-width: 992px) {
   header .bottom_header .page_title .main_title {
@@ -298,6 +299,7 @@ header .bottom_header .page_title .main_title .main_title_container {
   position: relative;
   bottom: 3px;
   height: 33px;
+  border: 1px solid purple;
 }
 header .bottom_header .page_title .main_title .main_title_image {
   position: absolute;
