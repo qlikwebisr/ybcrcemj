@@ -257,7 +257,7 @@ header .top_header .home_icon {
 }
 header .bottom_header .filters_container {
   background: #00A5B3;
-  /* box-shadow: 0 3px 6px #00000029; */
+  box-shadow: 0 3px 6px #00000029;
 }
 header .bottom_header .filters_container .top_filters {
   padding: 4px 4px 8px;
@@ -275,6 +275,18 @@ header .bottom_header .filters_container .top_filters .fiter_div .label {
 }
 header .bottom_header .page_title {
   display: flex;
+  position: relative;
+}
+header .bottom_header .page_title:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10px;
+  z-index: 1000;
+  width: 134px;
+  height: 23px;
+  background: transparent;
+  border: 1px solid lime;
 }
 header .bottom_header .page_title .main_title {
   width: 50%;
