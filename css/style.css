@@ -282,6 +282,19 @@ header .bottom_header .page_title .main_title {
   padding: 0 12px;
   border: 1px solid blue;
 }
+header .bottom_header .page_title .main_title:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  width: 134px;
+  height: 23px;
+  margin: 0 auto;
+  background: transparent;
+  border: 1px solid pink;
+}
 @media screen and (min-width: 992px) {
   header .bottom_header .page_title .main_title {
     padding: 0 14px;
