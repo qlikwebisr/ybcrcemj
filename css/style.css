@@ -279,19 +279,21 @@ header .bottom_header .page_title {
 header .bottom_header .page_title .main_title {
   width: 50%;
   position: relative;
-  padding: 0 12px;
-}
-header .bottom_header .page_title .main_title:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  width: 134px;
-  height: 23px;
-  margin: 0 auto;
-  background: transparent;
+  padding: 0;
+  /* 0 12px */
+  /*     &:after{
+      content:"";
+      position: absolute;
+      top: 0;
+      left:0;
+      right:0;
+      z-index:100;
+      width: 134px;
+      height: 23px;
+      margin:0 auto;
+      background: transparent;
+     // border: 1px solid pink;
+  } */
 }
 @media screen and (min-width: 992px) {
   header .bottom_header .page_title .main_title {
@@ -299,17 +301,25 @@ header .bottom_header .page_title .main_title:after {
   }
 }
 header .bottom_header .page_title .main_title .main_title_container {
-  background: #00A5B3;
-  transform: perspective(150px) rotateX(150deg);
-  -webkit-transform: perspective(150px) rotateX(150deg);
-  /*  transform: perspective(150px) rotateX(-30deg);
-   -webkit-transform: perspective(150px) rotateX(-30deg); */
-  /* border-radius: 0 0 4px 4px; */
-  /* box-shadow: 0 4px 6px #00000029; */
+  /* iphone fix */
+  background-image: url(../img/logo_container.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* besides image */
+  /*  background: $main-color;
+  transform: perspective(150px) rotateX(-30deg);
+  -webkit-transform: perspective(150px) rotateX(-30deg);
+  border-radius: 0 0 4px 4px; 
+  box-shadow: 0 4px 6px #00000029; */
   position: relative;
-  bottom: 5px;
-  /* 3px */
-  height: 33px;
+  bottom: 7px;
+  height: 40px;
+}
+@media screen and (max-width: 350px) {
+  header .bottom_header .page_title .main_title .main_title_container {
+    height: 35px;
+  }
 }
 header .bottom_header .page_title .main_title .main_title_image {
   position: absolute;
@@ -323,11 +333,9 @@ header .bottom_header .page_title .main_title .main_title_image {
   -o-transform: translateX(-50%);
   display: block;
   height: 28px;
-}
-@media screen and (max-width: 350px) {
-  header .bottom_header .page_title .main_title .main_title_image {
-    top: 8px;
-  }
+  /*  @media  screen and (max-width: 350px) {
+      top: 8px;
+  } */
 }
 header .bottom_header .page_title .main_title .main_title_image img {
   max-width: 134px;

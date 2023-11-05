@@ -76,9 +76,11 @@ header {
             .main_title {
                 width: 50%;
                 position: relative;
-                padding: 0 12px;
+                padding: 0;
+
+                /* 0 12px */
                 //border:1px solid blue;
-                &:after{
+                /*     &:after{
                     content:"";
                     position: absolute;
                     top: 0;
@@ -90,22 +92,34 @@ header {
                     margin:0 auto;
                     background: transparent;
                    // border: 1px solid pink;
-                }
-                @media  screen and (min-width: $medium) {
+                } */
+                @media screen and (min-width: $medium) {
                     padding: 0 14px;
                 }
+
                 .main_title_container {
-                    background: $main-color;
-                    transform: perspective(150px) rotateX(150deg);
-                    -webkit-transform: perspective(150px) rotateX(150deg);
-                   /*  transform: perspective(150px) rotateX(-30deg);
-                    -webkit-transform: perspective(150px) rotateX(-30deg); */
-                    /* border-radius: 0 0 4px 4px; */
-                    /* box-shadow: 0 4px 6px #00000029; */
+                    /* iphone fix */
+                    background-image: url(../img/logo_container.svg);
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    /* besides image */
+                    /*  background: $main-color;
+                    transform: perspective(150px) rotateX(-30deg);
+                    -webkit-transform: perspective(150px) rotateX(-30deg);
+                    border-radius: 0 0 4px 4px; 
+                    box-shadow: 0 4px 6px #00000029; */
                     position: relative;
-                    bottom: 5px; /* 3px */
-                    height: 33px;
+                    bottom: 7px;
+                    height: 40px;
                 }
+
+                @media screen and (max-width: 350px) {
+                    .main_title_container {
+                        height: 35px;
+                    }
+                }
+
                 .main_title_image {
                     position: absolute;
                     top: 0;
@@ -118,29 +132,34 @@ header {
                     -o-transform: translateX(-50%);
                     display: block;
                     height: 28px;
-                    @media  screen and (max-width: 350px) {
+
+                    /*  @media  screen and (max-width: 350px) {
                         top: 8px;
-                    }
+                    } */
                     img {
                         max-width: 134px;
                         display: block;
                         margin: 0 auto;
-                        z-index:2;
-                        @media  screen and (max-width: 350px) {
-                            max-width:95px;
+                        z-index: 2;
+
+                        @media screen and (max-width: 350px) {
+                            max-width: 95px;
                         }
-                        @media  screen and (min-width: 351px) and (max-width: 380px) {
-                            max-width:120px;
+
+                        @media screen and (min-width: 351px) and (max-width: 380px) {
+                            max-width: 120px;
                         }
                     }
                 }
             }
+
             .date {
                 @include center;
-                .label{
+
+                .label {
                     @include font(600, $main-color, 14px, 16px);
                 }
-               
+
             }
         }
     }
