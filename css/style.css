@@ -257,7 +257,7 @@ header .top_header .home_icon {
 }
 header .bottom_header .filters_container {
   background: #00A5B3;
-  box-shadow: 0 3px 6px #00000029;
+  /* box-shadow: 0 3px 6px #00000029; */
 }
 header .bottom_header .filters_container .top_filters {
   padding: 4px 4px 8px;
